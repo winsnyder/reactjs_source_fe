@@ -1,0 +1,11 @@
+FROM node:14.18 as builder
+
+WORKDIR /frontend
+
+COPY ./package.json /frontend
+
+RUN yarn
+
+COPY . .
+
+CMD ["yarn", "start"]
