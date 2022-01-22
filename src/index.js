@@ -1,21 +1,23 @@
 import React from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import App from "./App";
+import { BaseContextProvider } from "./hooks/context";
+
+/*Import CSS Ant Design*/
+import "antd/dist/antd.css";
 import "./index.css";
 
-// Import CSS Ant Design
-import "antd/dist/antd.css";
+/*Import Router*/
+import RouterDashBoard from "./routes/dashboard";
 
-// Import Context
-import { BaseContextProvider } from "./hooks/baseContext";
+/*End Import*/
 
 const rootElement = document.getElementById("root");
 
 render(
   <BaseContextProvider>
     <Router>
-      <App />
+      <RouterDashBoard />
     </Router>
   </BaseContextProvider>,
   rootElement
