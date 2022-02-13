@@ -17,7 +17,7 @@ export default function LoginForm() {
       // set token into session storage
       window.sessionStorage.setItem("token", response.data.token);
       // redirect to dashboard
-      navigate("/");
+      navigate("/user");
     } catch (error) {
       if (error.response) {
         message.error(error.response.data.message);

@@ -6,11 +6,13 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
+  ProfileOutlined,
+  NotificationOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
 // Import CSS define
-import "../../assets/styles/wrapper.css"
+import "../../assets/styles/wrapper.css";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -24,6 +26,7 @@ export default function LayoutWrapper(props) {
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider collapsible collapsed={collapsed} onCollapse={toggle}>
+        <div className="logo" />
         {/* {!collapsed ? (
           <img
             src={large_logo}
@@ -50,13 +53,13 @@ export default function LayoutWrapper(props) {
 
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1" icon={<UserOutlined />}>
-            <Link to="/permission">Permissions</Link>
+            <Link to="/user">Người dùng</Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<UserOutlined />}>
-            <Link to="/group">Groups</Link>
+          <Menu.Item key="2" icon={<ProfileOutlined />}>
+            <Link to="/post">Bài viết</Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<UserOutlined />}>
-            <Link to="/user">User</Link>
+          <Menu.Item key="3" icon={<NotificationOutlined />}>
+            <Link to="/contact">Phản hồi</Link>
           </Menu.Item>
         </Menu>
       </Sider>
@@ -80,9 +83,7 @@ export default function LayoutWrapper(props) {
         >
           {props.children}
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Base Admin ©2022 Created by VTI Corporation
-        </Footer>
+        <Footer style={{ textAlign: "center" }}>Create by ...</Footer>
       </Layout>
     </Layout>
   );

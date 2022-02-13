@@ -7,8 +7,8 @@ import { BaseContextProvider } from "./hooks/context";
 import "antd/dist/antd.css";
 import "./index.css";
 
-/*Import Router*/
-import RouterDashBoard from "./routes/dashboard";
+/*Import App*/
+import App from "./App";
 
 /*End Import*/
 
@@ -17,7 +17,7 @@ const rootElement = document.getElementById("root");
 render(
   <BaseContextProvider>
     <Router>
-      <RouterDashBoard />
+      <App />
     </Router>
   </BaseContextProvider>,
   rootElement
