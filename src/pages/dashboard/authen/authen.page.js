@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { Tabs } from "antd";
-import LoginForm from "../../components/authen/login.form";
-import SignupForm from "../../components/authen/signup.form";
-import BaseContext from "../../hooks/context";
+import LoginForm from "../../../components/authen/login.form";
+import SignupForm from "../../../components/authen/signup.form";
+import BaseContext from "../../../hooks/context";
 
 /*Import CSS*/
-import "../../assets/styles/login.css";
+import "../../../assets/styles/login.css";
 
 const { TabPane } = Tabs;
 

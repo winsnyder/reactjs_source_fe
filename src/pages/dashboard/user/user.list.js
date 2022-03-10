@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer } from "react";
-import LayoutWrapper from "./wrapper";
+import LayoutWrapper from "../wrapper";
 import { Table, Tag } from "antd";
-import { userApi } from "../../services/user.api";
+import { userApi } from "../../../services/user.api";
 
 /*Define Column For Table User*/
 const COLUMN_USER = [
@@ -109,13 +109,13 @@ export default function UserPage() {
 
   return (
     <LayoutWrapper>
-        <Table
-          columns={COLUMN_USER}
-          dataSource={dataSource}
-          pagination={state.pagination}
-          loading={state.loading}
-          onChange={handleTableChange}
-        />
+      <Table
+        columns={COLUMN_USER}
+        dataSource={dataSource}
+        pagination={state.pagination}
+        loading={state.loading}
+        onChange={handleTableChange}
+      />
     </LayoutWrapper>
   );
 }

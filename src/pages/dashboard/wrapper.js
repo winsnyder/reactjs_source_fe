@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 
 // Import CSS define
 import "../../assets/styles/wrapper.css";
+import "../../assets/styles/style.css";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -22,6 +23,8 @@ export default function LayoutWrapper(props) {
   const toggle = () => {
     setCollapsed(!collapsed);
   };
+
+  // const popover_content = <p>thang.buingoc</p>;
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -72,6 +75,10 @@ export default function LayoutWrapper(props) {
               onClick: toggle,
             }
           )}
+          {/*Option Profile*/}
+          {/* <Popover content={popover_content} title="Options" placement="bottomRight">
+            <div className="options-profile"></div>
+          </Popover> */}
         </Header>
         <Content
           className="site-layout-background"
