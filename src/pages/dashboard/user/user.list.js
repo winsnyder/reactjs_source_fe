@@ -1,7 +1,10 @@
 import React, { useEffect, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
 import LayoutWrapper from "../wrapper";
-import { Table, Tag } from "antd";
+import { Button, Table, Tag } from "antd";
+import { EditOutlined } from "@ant-design/icons";
 import { userApi } from "../../../services/user.api";
+import { UserDeleteModal, UserActiveModal } from "./user.modal";
 
 /*Define Column For Table User*/
 const COLUMN_USER = [
@@ -14,6 +17,11 @@ const COLUMN_USER = [
   {
     title: "Tên tài khoản",
     dataIndex: "username",
+    width: "20%",
+  },
+  {
+    title: "Hộp thư thoại",
+    dataIndex: "email",
     width: "20%",
   },
   {
@@ -30,7 +38,14 @@ const COLUMN_USER = [
   {
     title: "Tùy chọn chứ năng",
     width: "20%",
-    render: () => <p>thang.buingoc</p>,
+    render: () => (
+      <>
+        <UserDeleteModal />
+        <Button style={{ marginRight: 10 }} icon={<EditOutlined />} />
+        {/* <Button icon={<DashOutlined />} /> */}
+        <UserActiveModal />
+      </>
+    ),
   },
 ];
 
@@ -59,6 +74,7 @@ const dataFetchReducer = (state, action) => {
 };
 
 export default function UserPage() {
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(dataFetchReducer, {
     data: [],
     loading: false,
@@ -107,8 +123,26 @@ export default function UserPage() {
     });
   });
 
+  dataSource = [
+    {
+      key: 1,
+      index: 2,
+      username: "thang.buingoc",
+      email: "thangbn.pysoft@gmail.com",
+      created_at: "2022-06-25",
+      is_active: true,
+    },
+  ];
+
   return (
     <LayoutWrapper>
+      <Button
+        type="primary"
+        onClick={() => navigate("/user/create")}
+        style={{ marginBottom: 15, borderRadius: 5 }}
+      >
+        Thêm mới tài khoản
+      </Button>
       <Table
         columns={COLUMN_USER}
         dataSource={dataSource}

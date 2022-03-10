@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Import Component Ant Design
-import { Layout, Menu } from "antd";
+import { Button, Layout, Menu, Popover } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   ProfileOutlined,
   NotificationOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
@@ -15,16 +17,28 @@ import { Link } from "react-router-dom";
 import "../../assets/styles/wrapper.css";
 import "../../assets/styles/style.css";
 
+import profile from "../../assets/images/profile.jpeg";
+
 const { Header, Sider, Content, Footer } = Layout;
 
 export default function LayoutWrapper(props) {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
 
   const toggle = () => {
     setCollapsed(!collapsed);
   };
 
-  // const popover_content = <p>thang.buingoc</p>;
+  const popover_content = (
+    <>
+      <Button
+        style={{ borderRadius: 50 }}
+        onClick={() => navigate("/login")}
+        icon={<LogoutOutlined />}
+      />{" "}
+      Logout
+    </>
+  );
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -76,9 +90,15 @@ export default function LayoutWrapper(props) {
             }
           )}
           {/*Option Profile*/}
-          {/* <Popover content={popover_content} title="Options" placement="bottomRight">
-            <div className="options-profile"></div>
-          </Popover> */}
+          <Popover
+            content={popover_content}
+            title="Options"
+            placement="bottomRight"
+          >
+            <div className="options-profile">
+              <img src={profile} alt="" />
+            </div>
+          </Popover>
         </Header>
         <Content
           className="site-layout-background"
