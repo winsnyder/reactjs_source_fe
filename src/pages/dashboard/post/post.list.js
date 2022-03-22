@@ -1,8 +1,7 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import LayoutWrapper from "../wrapper";
 import { Button, Card, Col, Row, Select, Input, Empty } from "antd";
-import { MoreOutlined } from "@ant-design/icons";
-import CreateCategoryModal from "./post.modal.category";
 
 import "../../../assets/styles/style.css";
 import post from "../../../assets/images/post.jpeg";
@@ -21,16 +20,17 @@ function handleChange(value) {
 }
 
 export default function PostPage() {
+  const navigate = useNavigate();
   let contents = [];
 
   for (let i = 0; i < 5; i++) {
     contents.push(
-      <Row gutter={16} style={{ marginBottom: 15 }}>
+      <Row gutter={16} style={{ marginBottom: 15 }} key={i}>
         <Col span={8}>
           <Card
             className="card__wrapper"
             title="Thể  loại"
-            extra={<MoreOutlined style={{ fontSize: 20, cursor: "pointer" }} />}
+            extra={<Button>Chi tiết</Button>}
             bordered={true}
           >
             <p>Tiêu đề bài viết</p>
@@ -46,7 +46,7 @@ export default function PostPage() {
           <Card
             className="card__wrapper"
             title="Thể  loại"
-            extra={<MoreOutlined style={{ fontSize: 20 }} />}
+            extra={<Button>Chi tiết</Button>}
             bordered={true}
           >
             <p>Tiêu đề bài viết</p>
@@ -62,7 +62,7 @@ export default function PostPage() {
           <Card
             className="card__wrapper"
             title="Thể  loại"
-            extra={<MoreOutlined style={{ fontSize: 20 }} />}
+            extra={<Button>Chi tiết</Button>}
             bordered={true}
           >
             <p>Tiêu đề bài viết</p>
@@ -93,8 +93,11 @@ export default function PostPage() {
         >
           {children}
         </Select>
-        <CreateCategoryModal />
-        <Button style={{ float: "right" }} type="primary">
+        <Button
+          style={{ float: "right" }}
+          type="primary"
+          onClick={() => navigate("/post/new")}
+        >
           Tạo mới bài viết
         </Button>
       </div>

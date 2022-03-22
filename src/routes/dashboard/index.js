@@ -10,6 +10,7 @@ import UserPage from "../../pages/dashboard/user/user.list";
 import UserInfoPage from "../../pages/dashboard/user/user.info";
 /*Post Page*/
 import PostPage from "../../pages/dashboard/post/post.list";
+import PostNewPage from "../../pages/dashboard/post/post.new";
 
 /*Contact Page*/
 import ContactPage from "../../pages/dashboard/contact/contact.list";
@@ -23,6 +24,7 @@ export default function RouterDashBoard() {
         <Route path="/user" element={<UserPage />}></Route>
         <Route path="/user/create" element={<UserInfoPage />}></Route>
         <Route path="/post" element={<PostPage />}></Route>
+        <Route path="/post/new" element={<PostNewPage />}></Route>
         <Route path="/contact" element={<ContactPage />}></Route>
       </Routes>
     </>
