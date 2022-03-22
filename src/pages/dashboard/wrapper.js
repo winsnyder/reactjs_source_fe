@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 // Import Component Ant Design
 import { Button, Layout, Menu, Popover } from "antd";
@@ -24,6 +24,7 @@ const { Header, Sider, Content, Footer } = Layout;
 export default function LayoutWrapper(props) {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggle = () => {
     setCollapsed(!collapsed);
@@ -40,35 +41,20 @@ export default function LayoutWrapper(props) {
     </>
   );
 
+  let key = "";
+  if (location.pathname.indexOf("user") > -1) {
+    key = "1";
+  } else if (location.pathname.indexOf("post") > -1) {
+    key = "2";
+  } else {
+    key = "3";
+  }
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider collapsible collapsed={collapsed} onCollapse={toggle}>
         <div className="logo" />
-        {/* {!collapsed ? (
-          <img
-            src={large_logo}
-            alt="Logo VTI"
-            style={{
-              width: "50%",
-              marginLeft: 35,
-              marginTop: 5,
-              marginBottom: 5,
-            }}
-          />
-        ) : (
-          <img
-            src={small_logo}
-            alt="Logo VTI"
-            style={{
-              width: "50%",
-              marginLeft: 20,
-              marginTop: 5,
-              marginBottom: 5,
-            }}
-          />
-        )} */}
-
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={[key]}>
           <Menu.Item key="1" icon={<UserOutlined />}>
             <Link to="/user">Người dùng</Link>
           </Menu.Item>

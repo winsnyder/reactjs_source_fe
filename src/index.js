@@ -5,6 +5,7 @@ import { BaseContextProvider } from "./hooks/context";
 
 /*Import CSS Ant Design*/
 import "antd/dist/antd.css";
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import "./index.css";
 
 /*Import App*/
