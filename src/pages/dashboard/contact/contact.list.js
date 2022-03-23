@@ -1,4 +1,5 @@
 import React from "react";
+import {useNavigate} from "react-router-dom"
 import LayoutWrapper from "../wrapper";
 import { Card, Col, Row, Select, Empty, Button } from "antd";
 
@@ -21,17 +22,42 @@ function handleChange(value) {
 
 export default function ContactPage() {
   let contents = [];
+  const navigate = useNavigate()
   const [data, setData] = React.useState([])
 
   React.useEffect(async () => {
-    let response = await contactApi.getList({}, token)
+    const token = sessionStorage.getItem("token")
+    if (!token) {
+      navigate("/login")
+    }
+    try{
+      let response = await contactApi.getList({}, token)
+      setData(response.data.results)
+    }catch(error){
+      console.log(error)
+    }
 
   }, [])
 
+  console.log(data)
 
-  for (let i = 0; i < 1; i++) {
+
+  for (let i = 0; i < 3; i++) {
     contents.push(
       <Row gutter={16} style={{ marginBottom: 15 }} key={i}>
+        <Col span={6}>
+          <Card className="card__wrapper" title="Time:" bordered={true}>
+            <p>Nội dung phản hồi</p>
+            <Meta
+              style={{ textAlign: "right" }}
+              description={
+                <Button type="primary" danger>
+                  Delete
+                </Button>
+              }
+            />
+          </Card>
+        </Col>
         <Col span={6}>
           <Card className="card__wrapper" title="Time:" bordered={true}>
             <p>Nội dung phản hồi</p>
