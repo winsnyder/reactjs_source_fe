@@ -30,18 +30,18 @@ export default function Header() {
               >
                 <ul className="nav navbar-nav menu_nav justify-content-center">
                   <li className="nav-item active">
-                    <a className="nav-link" href="index.html">
-                      Home
+                    <a className="nav-link" href="#">
+                      Trang chủ
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="archive.html">
-                      Archive
+                    <a className="nav-link" href="#">
+                      Kho lưu trữ 
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="category.html">
-                      Category
+                    <a className="nav-link" href="#">
+                      Thể  loại
                     </a>
                   </li>
                   <li className="nav-item submenu dropdown">
@@ -53,19 +53,19 @@ export default function Header() {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      Pages
+                      Bài viết
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
                         <a className="nav-link" href="blog-details.html">
-                          Blog Details
+                          Chi tiết
                         </a>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="contact.html">
-                      Contact
+                    <a className="nav-link" href="#">
+                      Liên hệ
                     </a>
                   </li>
                 </ul>

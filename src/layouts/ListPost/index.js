@@ -1,17 +1,26 @@
 import React from "react";
 
+import { useLocation } from "react-router-dom";
+
 import Category from "../Category";
 import PostRefer from "../PostRefer";
 import PostDetail from "../PostDetail";
+import LargePost from "../LargePost";
 
 export default function ListPost() {
+  const location = useLocation();
+
   return (
     <>
       <section className="blog-post-area section-margin mt-4">
         <div className="container">
           <div className="row">
             {/*Large Post or Detail Post*/}
-            <PostDetail />
+            {location.pathname.indexOf("detail") > 1 ? (
+              <PostDetail />
+            ) : (
+              <LargePost />
+            )}
             {/*End Large Post or Detail Post*/}
 
             {/* {<!-- Start Blog Post Siddebar -->} */}
