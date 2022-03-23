@@ -4,6 +4,8 @@ import { Card, Col, Row, Select, Empty, Button } from "antd";
 
 import "../../../assets/styles/style.css";
 
+import { contactApi } from "../../../services/contact.api";
+
 const { Option } = Select;
 
 const { Meta } = Card;
@@ -19,6 +21,13 @@ function handleChange(value) {
 
 export default function ContactPage() {
   let contents = [];
+  const [data, setData] = React.useState([])
+
+  React.useEffect(async () => {
+    let response = await contactApi.getList({}, token)
+
+  }, [])
+
 
   for (let i = 0; i < 1; i++) {
     contents.push(
@@ -62,19 +71,6 @@ export default function ContactPage() {
             />
           </Card>
         </Col>
-        {/* <Col span={6}>
-          <Card className="card__wrapper" title="Time:" bordered={true}>
-            <p>Nội dung phản hồi</p>
-            <Meta
-              style={{ textAlign: "right" }}
-              description={
-                <Button type="primary" danger>
-                  Delete
-                </Button>
-              }
-            />
-          </Card>
-        </Col> */}
       </Row>
     );
   }

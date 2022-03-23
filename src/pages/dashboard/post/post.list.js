@@ -4,7 +4,7 @@ import LayoutWrapper from "../wrapper";
 import { Button, Card, Col, Row, Select, Input, Empty } from "antd";
 
 import "../../../assets/styles/style.css";
-import post from "../../../assets/images/post.jpeg";
+import post from "../../../assets/images/post.jpg";
 
 const { Option } = Select;
 const { Search } = Input;

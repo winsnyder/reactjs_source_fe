@@ -1,9 +1,9 @@
 import { axiosClient } from "./axiosClient";
 
-export const userApi = {
+export const contactApi = {
   async getList(params, token) {
     var qs = require("qs");
-    const response = await axiosClient.get("v1/api/users", {
+    const response = await axiosClient.get("v1/api/contacts", {
       params: {
         ...params,
       },
@@ -18,27 +18,8 @@ export const userApi = {
     return response;
   },
 
-  get(id) {
-    const url = `v1/api/user/${id}`;
-    return axiosClient.get(url);
-  },
-
-  add(data, token) {
-    const url = `v1/api/user`;
-    return axiosClient.post(url, data, {
-      headers: {
-        "btn-access-token": token
-      }
-    });
-  },
-
-  update(id, data) {
-    const url = `v1/api/user/${id}`;
-    return axiosClient.put(url, data);
-  },
-
   remove(id, token) {
-    const url = `v1/api/user/${id}`;
+    const url = `v1/api/contact/${id}`;
     return axiosClient.delete(url, {
       headers: {
         "btn-access-token": token,

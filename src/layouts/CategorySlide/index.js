@@ -10,7 +10,7 @@ export default function CategorySlide() {
               <div className="blog__slide__img">
                 <img
                   className="card-img rounded-0"
-                  src="img/blog/blog-slider/blog-slide1.png"
+                  src="../assets/img/blog/blog-slider/blog-slide1.png"
                   alt=""
                 />
               </div>

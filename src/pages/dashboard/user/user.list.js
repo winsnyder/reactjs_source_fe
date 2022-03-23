@@ -5,6 +5,7 @@ import { Button, Table, Tag } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import { userApi } from "../../../services/user.api";
 import { UserDeleteModal, UserActiveModal } from "./user.modal";
+import BaseContext from "../../../hooks/context";
 
 /*Define Column For Table User*/
 const COLUMN_USER = [
@@ -38,9 +39,9 @@ const COLUMN_USER = [
   {
     title: "Tùy chọn chứ năng",
     width: "20%",
-    render: () => (
+    render: (row) => (
       <>
-        <UserDeleteModal />
+        <UserDeleteModal id={row.id} name={row.username}/>
         <Button style={{ marginRight: 10 }} icon={<EditOutlined />} />
         {/* <Button icon={<DashOutlined />} /> */}
         <UserActiveModal />
@@ -74,6 +75,7 @@ const dataFetchReducer = (state, action) => {
 };
 
 export default function UserPage() {
+  const baseCtx = React.useContext(BaseContext);
   const navigate = useNavigate();
   const [state, dispatch] = useReducer(dataFetchReducer, {
     data: [],
@@ -84,15 +86,10 @@ export default function UserPage() {
     },
   });
 
-  useEffect(() => {
-    getData({});
-  }, []);
-
-  const getData = async (params) => {
+  const getData = async (params, token) => {
     dispatch({ type: "FETCH_INIT" });
     try {
-      let response = await userApi.getList(params);
-      console.log(response);
+      let response = await userApi.getList(params, token);
       dispatch({ type: "FETCH_SUCCESS", payload: response.data.results });
     } catch (error) {
       dispatch({ type: "FETCH_FAILURE" });
@@ -101,15 +98,15 @@ export default function UserPage() {
 
   // handle change table
   const handleTableChange = (pagination, filters, sorter) => {
+    const token = sessionStorage.getItem("token");
     getData({
       sortField: sorter.field,
       sortOrder: sorter.order,
       pagination,
       ...filters,
-    });
+    }, token);
   };
 
-  console.log(state.data);
 
   // Fill data into table
   let dataSource = [];
@@ -117,22 +114,21 @@ export default function UserPage() {
     dataSource.push({
       key: idx,
       index: idx + 1,
+      id: item.id,
+      email: "default@gmail.com",
       username: item.username,
       created_at: item.created_at,
       is_active: item.is_active,
     });
   });
 
-  dataSource = [
-    {
-      key: 1,
-      index: 2,
-      username: "thang.buingoc",
-      email: "thangbn.pysoft@gmail.com",
-      created_at: "2022-06-25",
-      is_active: true,
-    },
-  ];
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+    }
+    getData({}, token);
+  }, [baseCtx.reload]);
 
   return (
     <LayoutWrapper>

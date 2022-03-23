@@ -1,7 +1,9 @@
 import React from "react";
 import Banner from "../../layouts/Banner";
-import CategorySlide from "../../layouts/CategorySlide";
+// import CategorySlide from "../../layouts/CategorySlide";
+import ListPost from "../../layouts/ListPost";
 import Header from "../../layouts/Header";
+import Footer from "../../layouts/Footer";
 
 export default function Overview() {
   return (
@@ -9,7 +11,8 @@ export default function Overview() {
       <Header />
       <main className="site-main">
         <Banner />
-        <CategorySlide />
+        <ListPost />
+        <Footer />
       </main>
     </>
   );

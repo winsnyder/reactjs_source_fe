@@ -1,16 +1,35 @@
 import React, { useState } from "react";
-import { Modal, Button } from "antd";
+import { Modal, Button, message } from "antd";
 import { DeleteOutlined, DashOutlined } from "@ant-design/icons";
 
-export const UserDeleteModal = () => {
+import { userApi } from "../../../services/user.api";
+
+import BaseContext from "../../../hooks/context";
+
+export const UserDeleteModal = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const baseCtx = React.useContext(BaseContext);
 
   const showModal = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
-    setIsModalVisible(false);
+  const handleOk = async () => {
+    // Handle delete user
+    const token = sessionStorage.getItem("token")
+    try {
+      let response = await userApi.remove(parseInt(props.id), token);
+      if (response.status == 200) {
+        message.success("Bạn đã xóa thành công!")
+        setIsModalVisible(false);
+        baseCtx.changeReload();
+      }
+    } catch (error) {
+      message.error(
+        "Xóa user không thành công. Vui lòng kiểm tra lại kết nối!"
+      );
+      setIsModalVisible(false);
+    }
   };
 
   const handleCancel = () => {
@@ -31,7 +50,7 @@ export const UserDeleteModal = () => {
         onCancel={handleCancel}
       >
         <p style={{ textAlign: "center" }}>
-          Xác nhận xóa user : <b>thang.buingoc</b>. Bạn thực sự muốn xóa user
+          Xác nhận xóa user : <b>{props.name}</b>. Bạn thực sự muốn xóa user
           này khỏi hệ thống?
         </p>
       </Modal>
@@ -46,7 +65,7 @@ export const UserActiveModal = () => {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const handleOk = async () => {
     setIsModalVisible(false);
   };
 
