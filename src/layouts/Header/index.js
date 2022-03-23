@@ -57,7 +57,7 @@ export default function Header() {
                     </a>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="blog-details.html">
+                        <a className="nav-link" href="#">
                           Chi tiết
                         </a>
                       </li>

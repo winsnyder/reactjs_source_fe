@@ -3,7 +3,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 import Category from "../Category";
-import PostRefer from "../PostRefer";
+// import PostRefer from "../PostRefer";
 import PostDetail from "../PostDetail";
 import LargePost from "../LargePost";
 
@@ -50,35 +50,35 @@ export default function ListPost() {
                 {/*End Category*/}
 
                 {/*Popular Post*/}
-                <PostRefer />
+                {/* <PostRefer /> */}
                 {/*End Popular Post*/}
 
                 <div className="single-sidebar-widget tag_cloud_widget">
-                  <h4 className="single-sidebar-widget__title">Popular Post</h4>
+                  <h4 className="single-sidebar-widget__title">Chủ đề yêu thích</h4>
                   <ul className="list">
                     <li>
-                      <a href="#">project</a>
+                      <a href="#">Foods & Travel</a>
                     </li>
                     <li>
-                      <a href="#">love</a>
+                      <a href="#">Thực phẩm sạch</a>
                     </li>
                     <li>
-                      <a href="#">technology</a>
+                      <a href="#">Shopping</a>
                     </li>
                     <li>
                       <a href="#">travel</a>
                     </li>
                     <li>
-                      <a href="#">software</a>
+                      <a href="#">Vegettable</a>
                     </li>
                     <li>
-                      <a href="#">life style</a>
+                      <a href="#">Mua hàng tiện lợi</a>
                     </li>
                     <li>
-                      <a href="#">design</a>
+                      <a href="#">Cửa hàng thông minh</a>
                     </li>
                     <li>
-                      <a href="#">illustration</a>
+                      <a href="#">Apple & Foods</a>
                     </li>
                   </ul>
                 </div>

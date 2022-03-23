@@ -1,12 +1,38 @@
 import React from "react";
-import { Modal, Button, Form, Input } from "antd";
+import { useNavigate } from "react-router-dom";
+import { Modal, Button, Form, Input, message } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 
-export default function CreateCategoryModal() {
-  const [isModalVisible, setIsModalVisible] = React.useState(false);
+import { topicApi } from "../../../services/topic.api";
 
-  const onFinish = (values) => {
-    console.log("Success:", values);
+export default function CreateCategoryModal() {
+  const navigate = useNavigate();
+  const [isModalVisible, setIsModalVisible] = React.useState(false);
+  const [form] = Form.useForm();
+
+  const onFinish = async (values) => {
+    const token = sessionStorage.getItem("token");
+    try {
+      let response = await topicApi.add(
+        JSON.stringify({
+          summary: "",
+          content: values.category_name,
+        }),
+        token
+      );
+
+      if (response.status === 201) {
+        message.success("Tạo thể loại bài viết thành công!");
+        navigate("/post");
+        setIsModalVisible(false)
+      }
+      // redirect to dashboard
+    } catch (error) {
+      if (error.response) {
+        message.error(error.response.data.message);
+        form.resetFields();
+      }
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -15,10 +41,6 @@ export default function CreateCategoryModal() {
 
   const showModal = () => {
     setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
   };
 
   const handleCancel = () => {
@@ -35,7 +57,6 @@ export default function CreateCategoryModal() {
       <Modal
         title="Tạo mới thể loại bài viết"
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
         footer={[
           <Button key="cancel">Cancel</Button>,
@@ -45,6 +66,7 @@ export default function CreateCategoryModal() {
         ]}
       >
         <Form
+          form={form}
           name="myForm"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}

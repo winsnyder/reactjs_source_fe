@@ -1,7 +1,7 @@
 import React from "react";
 
-import image_food from "../../assets/images/image.jpg"
-
+import image_food from "../../assets/images/nom.jpg"
+import image_salad from "../../assets/images/salad.jpg"
 export default function LargePost() {
   return (
     <>
@@ -30,22 +30,56 @@ export default function LargePost() {
           <div className="details mt-20">
             <a href="blog-single.html">
               <h3>
-              Xôi Lào.
+              Nộm đu đủ (Tam Mak Hoong)
               </h3>
             </a>
             <p className="tag-list-inline">
-              Tag: <a href="#">travel</a>, <a href="#">life style</a>,{" "}
-              <a href="#">technology</a>, <a href="#">fashion</a>
+              Tag: <a href="#">foods</a>, <a href="#">life style</a>,{" "}
             </p>
             <p>
-              Over yielding doesn t so moved green saw meat hath fish he him
-              from given yielding lesser cattle were fruitful lights. Given let
-              have, lesser their made him above gathered dominion sixth.
-              Creeping deep said can t called second. Air created seed heaven
-              sixth created living
+            Nguyên liêu chính của món ăn là đu đủ chưa chín. Nó có nguồn gốc từ Lào, nhưng được kết hợp với nhiều loại nguyên liệu khác nhau tuỳ theo từng vùng. 
             </p>
             <a className="button" href="#">
-              Read More <i className="ti-arrow-right"></i>
+              Đọc thêm <i className="ti-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div className="single-recent-blog-post">
+          <div className="thumb">
+            <img className="img-fluid" src={image_salad} alt="" />
+            <ul className="thumb-info">
+              <li>
+                <a href="#">
+                  <i className="ti-user"></i>Admin
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="ti-notepad"></i>January 12,2019
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i className="ti-themify-favicon"></i>2 Comments
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="details mt-20">
+            <a href="blog-single.html">
+              <h3>
+              Salad cơm chiên giòn (Naem Khao Tod)
+              </h3>
+            </a>
+            <p className="tag-list-inline">
+              Tag: <a href="#">foods</a>, <a href="#">life style</a>,{" "}
+            </p>
+            <p>
+            Naem Khao Tod là một món salad tươi sống từ nơi này được làm từ cơm nắm chiên giòn, những miếng xúc xích heo chua, đậu phộng, dừa nạo, nước mắm, ớt khô và các nguyên liệu khác.
+            </p>
+            <a className="button" href="#">
+              Đọc thêm <i className="ti-arrow-right"></i>
             </a>
           </div>
         </div>

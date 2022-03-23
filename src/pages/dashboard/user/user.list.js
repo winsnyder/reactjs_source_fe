@@ -122,17 +122,6 @@ export default function UserPage() {
     });
   });
 
-  dataSource = [
-    {
-      key: 1,
-      index:  1,
-      id: 1,
-      email: "default@gmail.com",
-      username: "staff01",
-      created_at: "2022-02-24",
-      is_active: true,
-    }
-  ]
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
