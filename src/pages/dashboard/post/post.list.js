@@ -16,10 +16,6 @@ const { Option } = Select;
 const { Search } = Input;
 const { Meta } = Card;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
-
 export default function PostPage() {
   const baseCtx = React.useContext(BaseContext);
   const navigate = useNavigate();
@@ -28,20 +24,24 @@ export default function PostPage() {
   const [cate, setCate] = React.useState([]);
   let contents = [];
 
-  // eslint-disable-next-line
-  React.useEffect(async () => {
+  const getDataFilter = async (params) => {
     setSnipping(true);
     const token = sessionStorage.getItem("token");
     if (!token) {
       navigate("/login");
     }
     try {
-      let response = await postApi.getList({}, token);
+      let response = await postApi.getList(params, token);
       setData(response.data.results);
       setSnipping(false);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  // eslint-disable-next-line
+  React.useEffect(async () => {
+    await getDataFilter({});
   }, [baseCtx.reload]);
 
   // eslint-disable-next-line
@@ -75,7 +75,7 @@ export default function PostPage() {
               Thể loại <b>{item.topic_name}</b>
             </>
           }
-          extra={<PostDetailModal post_id={item.id}/>}
+          extra={<PostDetailModal post_id={item.id} />}
           bordered={true}
         >
           <p>Tiêu đề : {item.title}</p>
@@ -92,6 +92,14 @@ export default function PostPage() {
       </Col>
     );
   });
+
+  function handleChange(value) {
+    getDataFilter({ topic_id: value });
+  }
+
+  const handleFilterByKeyword = (value) => {
+    getDataFilter({ keyword: value });
+  };
 
   return (
     <LayoutWrapper>
@@ -123,6 +131,7 @@ export default function PostPage() {
             placeholder="Tìm kiếm theo tên, chủ đề của bài viết"
             size="large"
             style={{ width: "30%" }}
+            onSearch={handleFilterByKeyword}
           />
         </div>
         <div className="site-card-wrapper">

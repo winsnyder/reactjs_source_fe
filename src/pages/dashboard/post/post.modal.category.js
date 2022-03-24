@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { Modal, Button, Form, Input, message } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 
+import BaseContext from "../../../hooks/context";
+
 import { topicApi } from "../../../services/topic.api";
 
 export default function CreateCategoryModal() {
   const navigate = useNavigate();
   const [isModalVisible, setIsModalVisible] = React.useState(false);
   const [form] = Form.useForm();
+  const baseCtx = React.useContext(BaseContext)
 
   const onFinish = async (values) => {
     const token = sessionStorage.getItem("token");
@@ -25,6 +28,7 @@ export default function CreateCategoryModal() {
         message.success("Tạo thể loại bài viết thành công!");
         navigate("/post");
         setIsModalVisible(false)
+        baseCtx.changeReload()
       }
       // redirect to dashboard
     } catch (error) {
@@ -59,7 +63,7 @@ export default function CreateCategoryModal() {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={[
-          <Button key="cancel">Cancel</Button>,
+          <Button key="cancel" onClick={handleCancel}>Cancel</Button>,
           <Button form="myForm" key="submit" type="primary" htmlType="submit">
             Submit
           </Button>,

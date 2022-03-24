@@ -7,7 +7,7 @@ export default function Header() {
         <div className="main_menu">
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container box_1620">
-              <a className="navbar-brand logo_h" href="index.html">
+              <a className="navbar-brand logo_h" href="#">
                 <img src="img/logo.png" alt="" />
               </a>
               <button
@@ -55,17 +55,17 @@ export default function Header() {
                     >
                       Bài viết
                     </a>
-                    <ul className="dropdown-menu">
+                    {/* <ul className="dropdown-menu">
                       <li className="nav-item">
                         <a className="nav-link" href="#">
                           Chi tiết
                         </a>
                       </li>
-                    </ul>
+                    </ul> */}
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#">
-                      Liên hệ
+                      Phản hồi
                     </a>
                   </li>
                 </ul>

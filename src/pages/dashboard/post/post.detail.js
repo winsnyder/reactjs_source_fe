@@ -34,9 +34,11 @@ export default function PostDetailModal(props) {
         style={{ minHeight: 300 }}
         bodyStyle={{ overflowY: "scroll" }}
       >
-        <p>Title: {item.title}</p>
         <p>
-          Summary: <i>{item.summary}</i>
+          <b>Title</b>: {item.title}
+        </p>
+        <p>
+          <b>Summary</b>: <i>{item.summary}</i>
         </p>
         <img
           src={`data:image/png;base64,${item.image}`}

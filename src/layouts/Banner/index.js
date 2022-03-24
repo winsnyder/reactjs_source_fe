@@ -7,7 +7,7 @@ export default function Banner() {
         <div className="container">
           <div className="hero-banner">
             <div className="hero-banner__content">
-              <h3>Ẩm thực Lào & Laos Food</h3>
+              <h3>Du Lịch Lào & Laos Travel</h3>
               <h1>Amazing Places on earth</h1>
               <h4>December 23, 2022</h4>
             </div>

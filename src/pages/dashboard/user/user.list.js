@@ -41,7 +41,7 @@ const COLUMN_USER = [
     width: "20%",
     render: (row) => (
       <>
-        <UserDeleteModal id={row.id} name={row.username}/>
+        <UserDeleteModal id={row.id} name={row.username} />
         <Button style={{ marginRight: 10 }} icon={<EditOutlined />} />
         {/* <Button icon={<DashOutlined />} /> */}
         <UserActiveModal />
@@ -99,14 +99,16 @@ export default function UserPage() {
   // handle change table
   const handleTableChange = (pagination, filters, sorter) => {
     const token = sessionStorage.getItem("token");
-    getData({
-      sortField: sorter.field,
-      sortOrder: sorter.order,
-      pagination,
-      ...filters,
-    }, token);
+    getData(
+      {
+        sortField: sorter.field,
+        sortOrder: sorter.order,
+        pagination,
+        ...filters,
+      },
+      token
+    );
   };
-
 
   // Fill data into table
   let dataSource = [];
@@ -122,12 +124,11 @@ export default function UserPage() {
     });
   });
 
-
   useEffect(() => {
     const token = sessionStorage.getItem("token");
-    // if (!token) {
-    //   navigate("/login");
-    // }
+    if (!token) {
+      navigate("/login");
+    }
     getData({}, token);
   }, [baseCtx.reload]);
 
