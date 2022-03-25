@@ -123,7 +123,7 @@ export default function PostPage() {
             type="primary"
             onClick={() => navigate("/post/new")}
           >
-            Tạo mới bài viết
+            Tạo mới bài viết & Công thức
           </Button>
         </div>
         <div className="filter__post">
@@ -135,7 +135,9 @@ export default function PostPage() {
           />
         </div>
         <div className="site-card-wrapper">
-          <div className="list__card__header">Danh sách bài viết</div>
+          <div className="list__card__header">
+            Danh sách bài viết & Công thức
+          </div>
           <div className="list__card__template">
             {contents.length != 0 ? (
               contents

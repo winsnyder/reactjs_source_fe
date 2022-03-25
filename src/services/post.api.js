@@ -38,7 +38,7 @@ export const postApi = {
   },
 
   remove(id, token) {
-    const url = `v1/api/contact/${id}`;
+    const url = `v1/api/post/${id}`;
     return axiosClient.delete(url, {
       headers: {
         "btn-access-token": token,

@@ -16,14 +16,17 @@ import PostNewPage from "../../pages/dashboard/post/post.new";
 import ContactPage from "../../pages/dashboard/contact/contact.list";
 
 import Overview from "../../pages/ui/Overview";
-import PostDetail from "../../layouts/PostDetail";
+import AboutPage from "../../pages/ui/About";
+import FeedBackPage from "../../pages/ui/Contact";
 
 export default function RouterDashBoard() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Overview />}></Route>
-        <Route path="/:postId" element={<PostDetail />}></Route>
+        <Route path="/about" element={<AboutPage />}></Route>
+        <Route path="/:postId" element={<Overview />}></Route>
+        <Route path="/feedback" element={<FeedBackPage />}></Route>
         <Route path="/dashboard" element={<IndexPage />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/user" element={<UserPage />}></Route>

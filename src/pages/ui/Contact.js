@@ -1,11 +1,12 @@
 import React from "react";
+import FeedBack from "../../layouts/Contact";
 import Header from "../../layouts/Header";
-import Content from "../../layouts/Content";
-export default function Overview() {
+
+export default function FeedBackPage() {
   return (
     <>
       <Header />
-      <Content />
+      <FeedBack />
     </>
   );
 }

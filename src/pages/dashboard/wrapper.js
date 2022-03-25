@@ -56,13 +56,13 @@ export default function LayoutWrapper(props) {
         <div className="logo" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={[key]}>
           <Menu.Item key="1" icon={<UserOutlined />}>
-            <Link to="/user">Người dùng</Link>
+            <Link to="/user">Danh sách User</Link>
           </Menu.Item>
           <Menu.Item key="2" icon={<ProfileOutlined />}>
-            <Link to="/post">Bài viết</Link>
+            <Link to="/post">Bài viết & Công thức</Link>
           </Menu.Item>
           <Menu.Item key="3" icon={<NotificationOutlined />}>
-            <Link to="/contact">Phản hồi</Link>
+            <Link to="/contact">Phản hồi & Hỏi đáp</Link>
           </Menu.Item>
         </Menu>
       </Sider>

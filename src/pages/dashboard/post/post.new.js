@@ -58,7 +58,7 @@ export default function PostNewPage() {
   const onFinish = async (values) => {
     const token = sessionStorage.getItem("token");
 
-    console.log(values.post__image)
+    console.log(values.post__image);
 
     var formData = new FormData();
 
@@ -135,7 +135,16 @@ export default function PostNewPage() {
               <TextArea rows={15} />
             </Form.Item>
 
-            <Form.Item label="Hình ảnh minh họa (Image)" name="post__image">
+            <Form.Item
+              label="Hình ảnh minh họa (Image)"
+              name="post__image"
+              rules={[
+                {
+                  required: true,
+                  message: "Hãy chọn hình ảnh!",
+                },
+              ]}
+            >
               <Upload
                 fileList={fileList}
                 onChange={handleChange}

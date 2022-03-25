@@ -18,6 +18,11 @@ export const contactApi = {
     return response;
   },
 
+  add(data) {
+    const url = `v1/api/contact`;
+    return axiosClient.post(url, data);
+  },
+
   remove(id, token) {
     const url = `v1/api/contact/${id}`;
     return axiosClient.delete(url, {

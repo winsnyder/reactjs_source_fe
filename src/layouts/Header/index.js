@@ -1,101 +1,74 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 export default function Header() {
   return (
     <>
-      <header className="header_area">
-        <div className="main_menu">
-          <nav className="navbar navbar-expand-lg navbar-light">
-            <div className="container box_1620">
-              <a className="navbar-brand logo_h" href="#">
-                <img src="img/logo.png" alt="" />
-              </a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-
-              <div
-                className="collapse navbar-collapse offset"
-                id="navbarSupportedContent"
-              >
-                <ul className="nav navbar-nav menu_nav justify-content-center">
-                  <li className="nav-item active">
-                    <a className="nav-link" href="#">
-                      Trang chủ
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Kho lưu trữ 
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Thể  loại
-                    </a>
-                  </li>
-                  <li className="nav-item submenu dropdown">
-                    <a
-                      href="#"
-                      className="nav-link dropdown-toggle"
-                      data-toggle="dropdown"
-                      role="button"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Bài viết
-                    </a>
-                    {/* <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <a className="nav-link" href="#">
-                          Chi tiết
-                        </a>
-                      </li>
-                    </ul> */}
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Phản hồi
-                    </a>
-                  </li>
-                </ul>
-                <ul className="nav navbar-nav navbar-right navbar-social">
-                  <li>
-                    <a href="#">
-                      <i className="ti-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-twitter-alt"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-instagram"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-skype"></i>
-                    </a>
-                  </li>
-                </ul>
+      <div className="container">
+        <header id="site-header">
+          <div className="row">
+            <div className="col-md-4 col-sm-5 col-xs-8">
+              <div className="logo">
+                <h1>
+                  <Link to="">
+                    <b>Foods</b> &amp; Funny
+                  </Link>
+                </h1>
               </div>
             </div>
-          </nav>
-        </div>
-      </header>
+            <div className="col-md-8 col-sm-7 col-xs-4">
+              <nav className="main-nav" role="navigation">
+                <div className="navbar-header">
+                  <button
+                    type="button"
+                    id="trigger-overlay"
+                    className="navbar-toggle"
+                  >
+                    <span className="ion-navicon"></span>
+                  </button>
+                </div>
+
+                <div
+                  className="collapse navbar-collapse"
+                  id="bs-example-navbar-collapse-1"
+                >
+                  <ul className="nav">
+                    <li className="cl-effect-11">
+                      <Link to="/">Ẩm Thực & Công Thực</Link>
+                    </li>
+                    <li className="cl-effect-11">
+                      <Link to="">Blog</Link>
+                    </li>
+                    <li className="cl-effect-11">
+                      <Link to="/about">Về Chúng Tôi</Link>
+                    </li>
+                    <li className="cl-effect-11">
+                      <Link to="/feedback">Phản Hồi</Link>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+              <div id="header-search-box">
+                <Link id="search-menu" to="">
+                  <span
+                    id="search-icon"
+                    className="ion-ios-search-strong"
+                  ></span>
+                </Link>
+                <div id="search-form" className="search-form">
+                  <form role="search" method="get" id="searchform" action="#">
+                    <input type="search" placeholder="Search" required />
+                    <button type="submit">
+                      <span className="ion-ios-search-strong"></span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
     </>
   );
 }

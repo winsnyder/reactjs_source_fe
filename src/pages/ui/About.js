@@ -1,11 +1,13 @@
 import React from "react";
+
 import Header from "../../layouts/Header";
-import Content from "../../layouts/Content";
-export default function Overview() {
+import About from "../../layouts/About";
+
+export default function AboutPage() {
   return (
     <>
       <Header />
-      <Content />
+      <About />
     </>
   );
 }
