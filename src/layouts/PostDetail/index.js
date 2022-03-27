@@ -8,7 +8,7 @@ export default function PostDetail(props) {
 
   React.useEffect(() => {
     (async () => {
-        setSnipping(true)
+      setSnipping(true);
       try {
         let response = await postApi.get(parseInt(props.postId), "");
         setItem(response.data.results);

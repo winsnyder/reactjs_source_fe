@@ -12,7 +12,7 @@ export default function Header() {
               <div className="logo">
                 <h1>
                   <Link to="">
-                    <b>Foods</b> &amp; Funny
+                    <b>Cars</b> &amp; Thiên Long Moto
                   </Link>
                 </h1>
               </div>
@@ -35,7 +35,7 @@ export default function Header() {
                 >
                   <ul className="nav">
                     <li className="cl-effect-11">
-                      <Link to="/">Ẩm Thực & Công Thực</Link>
+                      <Link to="/">Trang chủ</Link>
                     </li>
                     <li className="cl-effect-11">
                       <Link to="">Blog</Link>
